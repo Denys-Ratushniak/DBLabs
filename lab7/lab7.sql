@@ -88,12 +88,13 @@ CREATE FUNCTION validate_email (email VARCHAR(323)) RETURNS VARCHAR(323)
 DETERMINISTIC
 BEGIN 
 	IF (email NOT REGEXP '^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9._-]@[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]\\.[a-zA-Z]{2,63}$') THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid email';
 		RETURN 'invalid email';
 	ELSE RETURN LOWER(email);
 	END IF;
 END//
-
 DELIMITER ;
+
 CREATE TEMPORARY TABLE `mail`(
 	mail VARCHAR(30)
 );

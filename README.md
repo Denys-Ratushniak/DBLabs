@@ -12,3 +12,9 @@ lab 6 - Some queries
 lab 7 - Procedures and functions
 
 lab 8 - Transactions
+
+lab 9 - Triggers
+
+lab 10 - Indexes
+
+lab 11 - NoSQL(MongoDB)
